@@ -28,4 +28,16 @@ router.post('/save', (req, res, next) => {
   .catch(err => { next(err); });
 });
 
+router.get('/view', (req, res, next) => {
+  notes.read(req.query.key)
+  .then(note => {
+    res.render('noteview', {
+      title: note ? note.title : "",
+      notekey: req.query.key,
+      note: note
+    });
+  })
+  .catch(err => { next(err); });
+});
+
 module.exports = router;
