@@ -2,7 +2,7 @@
 
 var notes = [];
 
-const note = require('./Note');
+const Note = require('./Note');
 
 exports.update = exports.create = function(key, title, body) {
   return new Promise((resolve, rject) => {
@@ -22,14 +22,14 @@ exports.destroy = function(key) {
     if (notes[key]) {
       delete notes[key];
       resolve();
-    } else reject(`Note ${key}` does not exist);
+    } else reject(`Note ${key} does not exist`);
   });
 };
 
 exports.keylist = function() {
   return new Promise((resolve, reject) => {
     resolve(Object.keys(notes));
-  }):
+  });
 };
 
 exports.count = function() {
