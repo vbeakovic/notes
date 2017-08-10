@@ -7,6 +7,7 @@ const Note = require('./Note');
 exports.update = exports.create = function(key, title, body) {
   return new Promise((resolve, rject) => {
     notes[key] = new Note(key, title, body);
+    resolve(notes[key]);
   });
 };
 
