@@ -12,7 +12,7 @@ exports.update = exports.create = function(key, title, body) {
 };
 
 exports.read = function(key) {
-  return new Promise((reslove, reject) => {
+  return new Promise((resolve, reject) => {
     if (notes[key]) resolve(notes[key]);
     else reject (`Note ${key} does not exist`);
   });
