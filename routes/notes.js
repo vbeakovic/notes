@@ -53,5 +53,17 @@ router.get('/edit', (req, res, next) => {
   .catch(err => { next(err); });
 });
 
+router.get('/destroy', (req, res, next) => {
+  notes.read(req.query.key)
+  .then(note => {
+    res.render('notedestroy', {
+      title: note ? note.tile : "",
+      notekey: req.query.key,
+      note:note
+    });
+  })
+  .catch(err => {next(err); });
+});
+
 
 module.exports = router;
