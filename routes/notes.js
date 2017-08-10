@@ -65,5 +65,10 @@ router.get('/destroy', (req, res, next) => {
   .catch(err => {next(err); });
 });
 
+router.get('/destroy/confirm', (req, res, next) => {
+  notes.destroy(req.body.notekey)
+  .then(() => {res.redirect('/'); })
+  .catch(err => { next(err); });
+});
 
 module.exports = router;
