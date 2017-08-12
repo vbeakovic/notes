@@ -60,7 +60,7 @@ router.get('/edit', (req, res, next) => {
       hideAddNote: true,
       breadcrumbs: [
         {href: '/', text: 'Home'},
-        {active: true, text: node.title}
+        {active: true, text: note.title}
       ]
     });
   })
